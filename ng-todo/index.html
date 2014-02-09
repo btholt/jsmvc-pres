@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ng-todo</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="ngTodo">
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">ng-todo</a>
+      <a class="navbar-right navbar-img" href="#"><img src="img/AngularJS.png" alt=""></a>
+    </div>
+  </div>
+
+  <section ng-controller="NgTodoCtrl">
+    <div class="outer-container">
+
+      <div class="add-todo-group input-group input-group-lg">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-list-alt"></i>
+        </span>
+        <input placeholder="New Todo" ng-class="{finished : todo.completed}" class="form-control" type="text" ng-model="newTask">
+        <span class="input-group-btn">
+          <button ng-click="addNewTask()" class="btn btn-success" type="button">
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+        </span>
+      </div>
+
+      <div class="input-group input-group-lg" ng-repeat="todo in todos">
+        <span class="input-group-addon">
+          <input type="checkbox" ng-model="todo.completed">
+        </span>
+        <input ng-class="{finished : todo.completed}" class="form-control" type="text" ng-model="todo.val">
+        <span class="input-group-btn">
+          <button ng-click="todos.splice($index,1)" class="btn btn-danger" type="button">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </span>
+      </div>
+
+      <div class="btn-clear-group">
+        <button ng-click="clearCompleted()" class="btn btn-primary btn-clear">Clear Completed</button>
+      </div>
+    </div>
+  </section>
+</body>
+
+<!-- JS Assets -->
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/ngTodoCtrl.js"></script>
+</html>
