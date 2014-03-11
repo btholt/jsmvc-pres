@@ -15,7 +15,9 @@ window.TodoView = Backbone.View.extend({
   },
   remove: function(){
     // This needs to actually delete it, not hide it
-    this.$el.remove();
+    console.log('here', this.model);
+    // this.$el.remove();
+    this.model.trigger('obliterate');
   },
   update: function() {
     this.model.set('val', this.$('.form-control').val());

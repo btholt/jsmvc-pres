@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>JS MVC</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <style type="text/css">
+      .reveal section img {
+        border: none;
+        background: none;
+        box-shadow: none;
+      }
+      .db-logo {
+        max-height:66px !important;
+        margin: 0px 10px !important;
+      }
+      strong {
+        color: green;
+      }
+      img.small {
+        max-height: 100px;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <img src="img/jsmvc.jpg" alt="JavaScript Smackdown!">
+        </section>
+
+        <section>
+          <section>
+            <img src="img/aquilafiera.png">
+            <img src="img/redditgifts.png">
+          </section>
+          <section>
+            <img src="img/hiring.jpg" alt="redditgifts is hiring">
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Why?</h2>
+            <ul>
+              <li>You're choosing an MVC for your next project.</li>
+              <li>You understand 1 or 2 of these frameworks and want to know about the other(s).</li>
+              <li>You just really wanted some reddit stickers.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>You have come to the right workshop!</h2>
+          </section>
+          <section>
+            <h2>This workshop depends on audience participation.</h2>
+            <ul>
+              <li>I've done some work in all these. However, these are all large, robust, and mature frameworks. If you know a better pattern to share, let's stop and talk about it.</li>
+              <li>That said, let's not get semantic. This workshop is really to communicate the look and feel of working in these frameworks, not every nut and bolt.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Unsolicited Opinions</h1>
+          </section>
+          <section>
+            <h2>Why Backbone?</h2>
+            <ul>
+              <li>Dead simple to interact with with RESTful APIs on a model level.</li>
+              <li>Offers great way to organize JavaScript code. Gets out of your way after that.</li>
+              <li>Barebones. Piece together your own client-side tech stack.</li>
+              <li>Works great for large applications.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Why AngularJS / EmberJS?</h2>
+            <ul>
+              <li>These largely scratch the itch.</li>
+              <li>Perfect use case for these is rapid prototyping.</li>
+              <li>Also do fairly well in small-to-medium size products.</li>
+              <li>Some interesting idiosyncrasies become evident at large scales.</li>
+              <li>Both are pretty damn fast. They both have areas of churn in different places.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>AngularJS</h2>
+            <ul>
+              <li>The power of the directive. Directives are an extremely powerful way to influence the DOM in a declarative fashion.</li>
+              <li>The ease of the POJO (plain ol' JavaScript object.) This makes Angular both easier to pick up and easier to apply your already awesome JS skills to it.</li>
+              <li>While monolithic at present, AngularJS is being decomposed into a more modular fashion, making it easier to piece together and improve on. Like how awesome the Angular-UI router is.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>EmberJS</h2>
+            <ul>
+              <li>Computed properties are awesome. Binding together models in your code makes some really cool possibilities.</li>
+              <li><strong>Opinion:</strong> EmberJS has fewer weird gotchas than AngularJS. I think this comes from having control over their objects.</li>
+              <li>Though I believe Ember's barrier to entry to is higher, I think the router is much easier to get used to. The Ember router is awesome.</li>
+              <li>Ember's docs are better.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section><img src="img/butwait.jpg" alt="But wait! There's more!"></section>
+
+          <section>
+            <p>There's tons of great things about these frameworks that we didn't talk about. Core features even.</p>
+          </section>
+          <section>
+            <h2>Cool things not addressed here.</h2>
+          </section>
+          <section>
+            <h2>Backbone</h2>
+            <ul>
+              <li>Mentioned a bit, but interacting with APIs once you have your models up and going is really easy.</li>
+              <li>We did this workshop with pretty vanilla Backbone. There are a <em>ton</em> of awesome libraries to go along with Backbone. Marionette is a personal favorite of mine as it makes a lot of these common design patterns in Backbone dead simple and takes away a lot of the boilerplate.</li>
+              <li>Backbone seems like a lot of code, but once you get your core models and views together, it becomes a very productive framework to work in.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Ember</h2>
+            <ul>
+              <li>Computed. Properties. You can set up properties that become are dependent on other properties. Like if you have a rectangle and you have an area property. You can make that a computed property that depends on the length and height.</li>
+              <li>Ember is a <em>framework</em> as opposed to the <em>toolset</em> that Angular confesses to be. The difference is subtle but is evident in their design patterns. You use Angular to build a framework for your app. Ember is the framework.</li>
+              <li>Everyone says Angular directives are amazing (they are) but most things can largely accomplished in Ember's views.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Angular</h2>
+            <ul>
+              <li>Okay. Directives are really, really cool. Think of them as decorators for HTML elements that you can mix and match. A directive can be as simple as adding two-way data-binding for a CSS property all the way to being a fully-functional web component(-esque) element.</li>
+              <li>Filters! Filters allow you filter input before you display it. If you wanted to not show some of your todos based on if it didn't have any letter 'V' in the title, it'd be simple to write a filter for that. Or automatically take display format currency or time.</li>
+              <li>Custom services. You saw scope, but you can write your own dependency injected services. Things that you find yourself doing a lot can easily be abstracted into a service, tested, and reused. I made one for a essentially a local version of memcache using localStorage. Really simple to do using services.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <img src="img/hiring.jpg" alt="redditgifts is hiring">
+        </section>
+        <section>
+          <img src="img/jsmvc.jpg" alt="JavaScript Smackdown!">
+        </section>
+        <section>
+          <h1>@holtbt</h1>
+        </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
