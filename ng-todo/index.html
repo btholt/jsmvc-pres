@@ -37,7 +37,7 @@
         <input ng-class="{finished : todo.completed}" class="form-control" type="text" ng-model="todo.val">
         <span class="input-group-btn">
           <button ng-click="todos.splice($index,1)" class="btn btn-danger" type="button">
-            <i class="glyphicon glyphicon-remove"></i>
+            <i complete-color="todo.completed" class="glyphicon glyphicon-remove"></i>
           </button>
         </span>
       </div>
@@ -52,5 +52,8 @@
 <!-- JS Assets -->
 <script src="js/angular.min.js"></script>
 <script src="js/app.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/services.js"></script>
 <script src="js/ngTodoCtrl.js"></script>
 </html>

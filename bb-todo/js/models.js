@@ -9,13 +9,16 @@ window.TodoItems = Backbone.Collection.extend({
   url: '/todos',
 
   initialize: function(){
-    this.on('obliterate', this.hideModel, this);
+    this.on('destroy', this.removeElement, this);
   },
 
-  hideModel: function(model){
-    // model.trigger('hide');
-    console.log('pre', this);
+  removeElement: function(model){
     this.remove(model);
-    console.log('post', this);
+  },
+
+  filterCompleted: function() {
+    this.remove(this.filter(function(item) {
+      return item.get('completed');
+    }));
   }
 });

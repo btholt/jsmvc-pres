@@ -7,24 +7,19 @@ window.TodoView = Backbone.View.extend({
   },
   initialize: function(){
     this.model.on('change', this.render, this);
-    this.model.on('destroy hide', this.remove, this);
   },
   render: function(){
     this.$el.html(this.template(this.model.toJSON()));
     return this;
   },
   remove: function(){
-    // This needs to actually delete it, not hide it
-    console.log('here', this.model);
-    // this.$el.remove();
-    this.model.trigger('obliterate');
+    this.model.destroy();
   },
   update: function() {
     this.model.set('val', this.$('.form-control').val());
   },
   toggle: function() {
     this.model.toggle();
-    this.render();
   },
   className: 'input-group input-group-lg'
 
@@ -34,6 +29,7 @@ window.TodosView = Backbone.View.extend({
   initialize: function(){
     this.collection.on('add', this.addOne, this);
     this.collection.on('reset', this.addAll, this);
+    this.collection.on('destroy', this.render, this);
   },
 
   render: function(){
@@ -52,9 +48,7 @@ window.TodosView = Backbone.View.extend({
   },
 
   filterCompleted: function() {
-    this.collection = this.collection.filter(function(item) {
-      return !item.get('completed');
-    });
+    this.collection.filterCompleted();
     this.render();
   }
 });

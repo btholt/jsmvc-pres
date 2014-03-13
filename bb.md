@@ -61,15 +61,12 @@ $(function(){ TodoApp.start() });
 ### functions
 
 - Notice all the functions are simply messing with the rendering. None of it's actually changing date.
-// TODO take the set out of update and put in the model.
 - Notice I have to call the render function when I want the DOM to update. Two-way data binding is not free in Backbone (out of the box) like it is in Ember and Angular. Every time your data is changing (and you expect that to change the view in some way) you need to make sure you're rendering. The idiomatic way (as far as I know) is how I did it here.
 - Notice in initialize that you can actually bind to your own custom events
 
 ### addAll and addOne
 
 - This is also some idiomatic Backbone. (you don't have to do it this way.) The render does want to do an addAll once it's called but it can also be called in other situations. For that reason we've split the two out. The addOne is the same idea. We want to be able addOne (as we'll do from the router) from other places besides just the addAll function. As such, we've split it out.
-
-// TODO put filterCompleted into the the collections model.
 
 ## Finally
 
