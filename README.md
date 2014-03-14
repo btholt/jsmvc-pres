@@ -9,6 +9,8 @@
 
 There are four folders: one for each framework as well as the presentation. Each folder is self-contained and has all the necessary components to run each part.
 
+There are also a few additional markdown files that follow the explanation of the code as I was giving it with code snippets.
+
 ## Development
 
 Please feel free to look over the repos. I'll be developing them bit by bit as I present it multiple times. If you see errors, feel free to fork-and-fix or leave an issue.
