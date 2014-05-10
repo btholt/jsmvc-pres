@@ -288,12 +288,6 @@ removeElement: function(model){
 
 ```
 
-
-
-```
-
-
-
 =====
 
 // This is the old explanation.
