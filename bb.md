@@ -294,7 +294,10 @@ removeElement: function(model){
 
 
 
-------------------------------
+=====
+
+// This is the old explanation.
+// It goes over the code instead of live coding it.
 
 ## router.js
 
