@@ -16,7 +16,7 @@ window.TodoView = Backbone.View.extend({
     this.model.destroy();
   },
   update: function() {
-    this.model.set('val', this.$('.form-control').val());
+    this.model.updateText(this.$('.form-control').val());
   },
   toggle: function() {
     this.model.toggle();

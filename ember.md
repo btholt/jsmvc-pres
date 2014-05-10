@@ -32,7 +32,8 @@ Todos.TodosRoute = Ember.Route.extend({
 
 
 
-- Just adding a base route in here. Unlike Angular, Ember has the router baked into the core of it and it's not very feasible to write Ember without the router (as opposed to Angular, which you can write without the router.)
+- Just adding a base route in here. Unlike Angular, Ember has the router baked into the core of it and it's not very feasible to write Ember without the router (as opposed to Angular, which you can write without the router quite easily.)
+- This is pretty demonstrative of how Ember works: it's pretty prescribed. They've made it pretty tough to write bad Ember code. While some may shun this approach, I believe it has a lot of merit. A lot my early Angular code is pretty bad because I didn't quite understand best practices yet. Ember will force to bang your head against it until it makes you give it best practices. This is great for teams with junior devs as well because they are forced in following Ember best practices.
 - The this.store.find() will go into whatever adapter it's connected to (in our case, just hardcoded. Otherwise it'd probably make an AJAX request to a server.)
 
 
@@ -45,6 +46,12 @@ Todos.Todo = DS.Model.extend({
   completed: DS.attr('boolean')
 });
 
+```
+
+## fixtures.js
+
+```javascript
+
 Todos.Todo.FIXTURES = [
  {
    id: 1,
@@ -53,7 +60,7 @@ Todos.Todo.FIXTURES = [
  },
  {
    id: 2,
-   val: 'Fluent Conf',
+   val: 'Banana for Scale',
    completed: false
  },
  {
@@ -96,7 +103,27 @@ Todos.TodoController = Ember.ObjectController.extend({
 
 - Ember Data has a lot of built in functionality like save, update, and delete. As such, we're just going to leverage those. Thus really the only thing we need to code up is what happens when the delete buttons gets coded.
 - We don't need to code up the binding between the value in the DOM input and the Ember model. This is part of Ember's core: two-way data binding. If it changes on the DOM, it changes in the JS model and vice versa. This is a powerful feature and saves tons of time. It one of the greatest strength of both Angular and Ember.
-- **Using the console, demonstrate how the data stays the same if you change it either in the console or the input.**
+
+## index.html
+
+```handlebars
+
+<script type="text/x-handlebars" data-template-name="todos">
+</script>
+
+```
+
+- This how Ember knows where to go template. Kinda fun, right?
+
+```handlebars
+
+{{input class="form-control" type="text" id="new-todo" placeholder="New Todo" value=newTodo action="createNewTodo"}}
+
+```
+
+- Simple helper function that comes that cool two-way dataBinding
+- The action tells it what to do if it's "submitted," or in this case if you hit enter on it. It'll call the createNewTodo function which we'll code in a sec.
+- The value is how it knows which variable it's two-way binding to.
 
 ```javascript
 
@@ -130,11 +157,22 @@ Todos.TodosController = Ember.ArrayController.extend({
 
 ```handlebars
 
-{{input class="form-control" type="text" id="new-todo" placeholder="New Todo" value=newTodo action="createNewTodo"}}
+{{#each itemController="todo"}}
+{{/each}}
+
 
 ```
 
-- Simple helper function that comes that cool two-way dataBinding
+- Like the ng-repeat directive. This will loop over your collection of todos and create an element for it.
+- Changes the context to be the individual items.
+
+```handlebars
+
+{{input type="checkbox" checked=completed}}
+
+```
+
+- Another input helper. Will be checked based on the item's completed property.
 
 ```handlebars
 
@@ -143,6 +181,16 @@ Todos.TodosController = Ember.ArrayController.extend({
 ```
 
 - Conditional classes. Prefix with just a colon and always get that class. Prefix it with a JavaScript variable and it'll change add/remove the class based on the truthiness of the variable.
+- The input value will be based on val.
+- You can't mix classNameBindings and class. Use the prefixed colon syntax to always have the class.
+
+```handlebars
+
+<button class="btn btn-danger" type="button" {{action "removeTodo"}}>
+
+```
+
+- Bind the removeTodo method to the button click. This will be called at the collection level.
 
 ```handlebars
 

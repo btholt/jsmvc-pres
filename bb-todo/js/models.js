@@ -1,12 +1,14 @@
 window.TodoItem = Backbone.Model.extend({
   toggle: function() {
     this.set('completed', !this.get('completed'));
+  },
+  updateText: function(text) {
+    this.set('val', text);
   }
 });
 
 window.TodoItems = Backbone.Collection.extend({
   model: TodoItem,
-  url: '/todos',
 
   initialize: function(){
     this.on('destroy', this.removeElement, this);

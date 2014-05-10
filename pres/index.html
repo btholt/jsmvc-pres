@@ -112,6 +112,79 @@
 
         <section>
           <section>
+            <h1>Why an MVC in thie first place?</h1>
+          </section>
+          <section>
+            <h2>Good question!</h2>
+            <ul>
+              <li>Some companies, like Facebook, have chosen to eschew MVC in favor of other paradigms (or no recognizeable paradigms.)</li>
+              <li>Totally a good call to not use an MVC in a lot of cases. A lot of time everything looks like a nail when you're holding the hammer.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Okay, you convinced me not to use MVC. Good job.</h2>
+            <ul>
+              <li>But, wait. Some things <em>are</em> nails. Sometimes these paradigms can make sense (I say can because you can never use MVC and still be okay.)</li>
+              <li>The bottom line comes down to if it makes you more productive. If it makes you more productive in your project, do it! That's what they're designed for: optimizing your development.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Okay, which one should I use?</h1>
+          </section>
+          <section>
+            <img src="img/secret.gif" alt="It's a secret to everyone.">
+          </section>
+          <section>
+            <h2>Just kidding.</h2>
+            <p>But I'm not going to tell which one to like. Pick the one that makes sense for your project. And what makes to sense to you.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Okay, but what are the differences then?</h1>
+          </section>
+          <section>
+            <h2>Let's examine the internal mechanics a little bit.</h2>
+          </section>
+          <section>
+            <h2>Angular</h2>
+            <ul>
+              <li>Achieves two-way data binding via dirty checking.</li>
+              <li>The code behind some these Angular features is bananas. Seriously.</li>
+              <img src="img/crazycode.png" alt="Crazy snippet of Angular code.">
+            </ul>
+          </section>
+          <section>
+            <h2>Angular continued...</h2>
+            <ul>
+              <li>Essentially, a certain of actions in Angular cause it enter a digest cycle which is where it checks to see if any of the objects in your scope have changed. If they have, they're updated to reflect that in all of its references.</li>
+              <li>Sounds inefficient, right? Well, it sort of is, but it doesn't matter 90% of the time. However, two assumptions are being made: your comparisons aren't taking more than 25 µsec and you're tracking less than 2,000 objects. Usually pretty safe assumptions.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Ember</h2>
+            <ul>
+              <li>Ember achieves two-way data binding via accessor methods on objects.</li>
+              <li>This allows for effecient data checking and some other cool stuff like computed properties.</li>
+              <li>However, this makes for less appealing syntax (personal opinion) because you have to do things like <code>obj.set('key', 'val')</code> instead of <code>obj.key = val</code> like in Angular.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Backbone</h2>
+            <ul>
+              <li>Backbone achieves the two-way data binding like Ember but it's not free. You have to do all the wiring yourself.</li>
+              <li>This is great because no assumptions are made and you are free to shape how you please.</li>
+              <li>Backbone is also easily extensible. For example, it's pretty easy to rip out Backbone's views and put in ReactJS views. Pretty fun.</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
             <h1>Unsolicited Opinions</h1>
           </section>
           <section>
@@ -126,7 +199,7 @@
           <section>
             <h2>Why AngularJS / EmberJS?</h2>
             <ul>
-              <li>These largely scratch the itch.</li>
+              <li>These largely scratch the same itch.</li>
               <li>Perfect use case for these is rapid prototyping.</li>
               <li>Also do fairly well in small-to-medium size products.</li>
               <li>Some interesting idiosyncrasies become evident at large scales.</li>

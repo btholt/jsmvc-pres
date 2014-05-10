@@ -12,18 +12,19 @@ window.TodoApp = new (Backbone.Router.extend({
 
     $('.btn-clear').click(function() {
       window.TodoApp.todosView.filterCompleted();
-    })
+    });
 
   },
   index: function() {
-    $('#app').html(this.todosView.el);
-    this.todoItems.reset([
+    var fixtures = [
       {val: 'Learn Backbone.js', completed:true},
       {val: 'Look at cat pictures', completed: true},
       {val: 'Also, puppies', completed: false},
       {val: 'Choose an MVC', completed: false},
       {val: 'Hear some rad presenters', completed: true}
-    ]);
+    ];
+    $('#app').html(this.todosView.el);
+    this.todoItems.reset(fixtures);
   },
   start: function() {
     Backbone.history.start();
