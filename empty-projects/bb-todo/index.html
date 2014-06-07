@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bb-todo</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">bb-todo</a>
+      <a class="navbar-right navbar-img" href="#"><img src="img/backbone.png" alt=""></a>
+    </div>
+  </div>
+
+  <section>
+    <div class="outer-container">
+
+      <div class="add-todo-group input-group input-group-lg">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-list-alt"></i>
+        </span>
+        <input id="newTodo" placeholder="New Todo" class="form-control" type="text">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button">
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+        </span>
+      </div>
+
+      <div id="app"><!-- Todo list goes here --></div>
+
+      <div class="btn-clear-group">
+        <button class="btn btn-primary btn-clear">Clear Completed</button>
+      </div>
+    </div>
+  </section>
+</body>
+
+<!-- JS Assets -->
+<script src="js/jquery-2.0.2.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/models.js"></script>
+<script src="js/views.js"></script>
+<script src="js/router.js"></script>
+<script src="js/app.js"></script>
+
+</html>
