@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-app="ngTodo"><!-- app -->
+<body><!-- app -->
   <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
       <a class="navbar-brand" href="#">ng-todo</a>
@@ -15,35 +15,35 @@
     </div>
   </div>
 
-  <section ng-controller="NgTodoCtrl"><!-- ctrl -->
+  <section><!-- ctrl -->
     <div class="outer-container">
 
       <div class="add-todo-group input-group input-group-lg">
         <span class="input-group-addon">
           <i class="glyphicon glyphicon-list-alt"></i>
         </span>
-        <input placeholder="New Todo" class="form-control" ng-model="newTask" type="text"><!-- model  -->
+        <input placeholder="New Todo" class="form-control" type="text"><!-- model  -->
         <span class="input-group-btn">
-          <button ng-click="addNewTask()" class="btn btn-success" type="button"><!-- click  -->
+          <button class="btn btn-success" type="button"><!-- click  -->
             <i class="glyphicon glyphicon-plus"></i>
           </button>
         </span>
       </div>
 
-      <div ng-repeat="todo in todos" class="input-group input-group-lg"><!-- repeat  -->
+      <div class="input-group input-group-lg"><!-- repeat  -->
         <span class="input-group-addon">
-          <input type="checkbox" ng-model="todo.completed"> <!-- model -->
+          <input type="checkbox"> <!-- model -->
         </span>
-        <input ng-model="todo.val" ng-class="{finished : todo.completed}" class="form-control" type="text"><!-- model / class  -->
+        <input class="form-control" type="text"><!-- model / class  -->
         <span class="input-group-btn">
-          <button class="btn btn-danger" ng-click="todos = todos.splice($index,1)" type="button"><!-- click  -->
+          <button class="btn btn-danger" type="button"><!-- click  -->
             <i ng-show="todo.completed" class="glyphicon glyphicon-remove"></i>
           </button>
         </span>
       </div>
 
       <div class="btn-clear-group">
-        <button ng-click="clearCompleted()" class="btn btn-primary btn-clear">{{ newTask | uppercase }}</button><!-- click -->
+        <button class="btn btn-primary btn-clear">Clear Completed</button><!-- click -->
       </div>
     </div>
   </section>
@@ -54,6 +54,5 @@
 <script src="js/app.js"></script>
 <script src="js/filters.js"></script>
 <script src="js/directives.js"></script>
-<script src="js/services.js"></script>
 <script src="js/ngTodoCtrl.js"></script>
 </html>
