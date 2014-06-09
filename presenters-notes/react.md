@@ -12,7 +12,7 @@ Any of those will work. If you don't know or have any of those, I'd suggest runn
 
 ## app.jsx
 
-```jsx
+```javascript
 /** @jsx React.DOM */
 ```
 
@@ -20,7 +20,7 @@ Any of those will work. If you don't know or have any of those, I'd suggest runn
 - That leading comment needs to be on every page. That's how the JSX parser knows which files to transpile.
 - Typically, when using React in a production environment, you would have Grunt, Gulp, Broccoli or whatever transpile the JSX into JS. Because we're lazy and just prototyping, we're including the JSXTransformer which functions much like the {less} transpiler if you've ever used it. It just transforms the JSX on the fly. Don't do that in production.
 
-```jsx
+```javascript
 var app = app || {};
 
 (function() {
@@ -36,7 +36,7 @@ var app = app || {};
 
 ## components.jsx
 
-```jsx
+```javascript
 /** @jsx React.DOM */
 
 var app = app || {};
@@ -82,7 +82,7 @@ app.init();
 - **All** void elements must have the trailing `/>`. The slash must be there. Include `<img />` and any other HTML that would valid otherwise. That said, in JSX, `<div />` is valid. I wouldn't suggest it though.
 - Let's try it out. You should see you component showing up.
 
-```jsx
+```javascript
 // TodoApp
 render: function() {
   return (
@@ -125,7 +125,7 @@ var ClearCompleted = app.components.ClearCompleted = React.createClass({
 - A lot of code but really one concept being communicated: you can compose components of other components and  I would suggest you do that. This leads to easier-to-digest code, separation of concerns, and reuseable components.
 - Take a look at it. You should see the three h1s.
 
-```jsx
+```javascript
 // TodoApp
 getInitialState: function() {
   return {
@@ -145,7 +145,7 @@ componentDidMount: function() {
 
 ## app.jsx
 
-```jsx
+```javascript
 // General function body
 app.retrieveData = function() {
   return app.FIXTURES;
@@ -157,7 +157,7 @@ app.retrieveData = function() {
 
 ## components.jsx
 
-```jsx
+```javascript
 // TodoApp.render
 render: function() {
   return (
@@ -176,7 +176,7 @@ render: function() {
 - In this case we're passing the todos state from the parent to `TodoList` component as a prop.
 - Data only flows one way in a React app: from the parents to the children. Data does not flow from the children to the parents. If you want to modify the parent's data, you'll pass a function from the parent to the child via a prop. We'll do that in a sec.
 
-```jsx
+```javascript
 // TodoList
 var TodoList = app.components.TodoList = React.createClass({
   render: function() {
@@ -200,7 +200,7 @@ var TodoList = app.components.TodoList = React.createClass({
 - Here we're using the props which is an object containing everything that the parent passed in. A child cannot change its props; it can only change its state. The data must be changed at the parent level.
 - We map over the `todos` prop to create a `TodoItem` for each todo. We'll pass in the todo itself as well as the index (which we'll use for modifiying the todos array later.)
 
-```jsx
+```javascript
 // General function body
 var TodoItem = app.components.TodoItem = React.createClass({
   render: function() {
@@ -230,7 +230,7 @@ var TodoItem = app.components.TodoItem = React.createClass({
 - Let's look at it. Try clicking on the checkbox or changing the value of the input. Weird, right? Nothing changes. This is because these are available via props and thus cannot be changed at the child level. In order to update them, we have to update the parent. We'll pass some function around to do that.
 
 
-```jsx
+```javascript
 // TodoApp
 updateVal: function(val, index) {
   var state = this.state;
@@ -290,7 +290,7 @@ render: function() {
 - Notice in the `.bind(this)` in the the `TodoList`. When you run `map` it changes the context from `this` being the React component to being the `todos` array thus we need to shift that context to be the React component using `bind`. You could also use is `var _this = this` strategy.
 
 
-```jsx
+```javascript
 //T
 handleVal: function(e) {
   this.props.updateVal(e.target.value, this.props.index);
@@ -338,7 +338,7 @@ var TodoItem = app.components.TodoItem = React.createClass({
 - A good pattern is to handle events on the child compoents and handle the data changes on the parents. It is possible to simply bind a parent's method to handle the events but it's an antipattern; try to keep the handling of the data as close to the source as possible. In this case, the events happen on the child, so handle it there. The data changes at the parent level so handle it there.
 - Let's look at it. Notice you can now change the completed status and update the text of the todos.
 
-```jsx
+```javascript
 // TodoApp
 createNewTodo: function(newValue) {
   var state = this.state;
@@ -389,7 +389,7 @@ var NewTodo = app.components.NewTodo = React.createClass({
 - Let's try it. It should work as expected.
 - For simplicity and laziness, only clicking the button works. If you wanted to make enter-submit work as well, wrap the New Todo input in a form and stick an `onSubmit` listener. That would cover both the button and the enter-submit.
 
-```jsx
+```javascript
 // TodoApp
 filterCompleted: function() {
   var newTodos = this.state.todos.filter(function(el, index) {
