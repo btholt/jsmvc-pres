@@ -78,6 +78,8 @@ app.init();
 ```
 
 - Initializing the app. Like Backbone, you need to stick it somewhere. Here we're just sticking it on the `app` id.
+- This is your only direct interaction with actual DOM. Everything else you should interact with the virtual DOM.
+- TodoApp as a tag looks weird here. It'll be clear later of why this looks the way it does.
 - Notice that you need to set the TodoApp on the local scope here for it work. The reason is that JSX is just transpiling that `TodoApp` to be a function call. As such it needs to be available on the local scope. And no, `<app.components.TodoApp />` doesn't work.
 - **All** void elements must have the trailing `/>`. The slash must be there. Include `<img />` and any other HTML that would valid otherwise. That said, in JSX, `<div />` is valid. I wouldn't suggest it though.
 - Let's try it out. You should see you component showing up.
@@ -291,15 +293,6 @@ render: function() {
 
 
 ```javascript
-//T
-handleVal: function(e) {
-  this.props.updateVal(e.target.value, this.props.index);
-},
-handleToggle: function() {
-  this.props.toggleCompleted(this.props.index);
-},
-
-[...]
 
 // TodoItem
 var TodoItem = app.components.TodoItem = React.createClass({
@@ -336,6 +329,7 @@ var TodoItem = app.components.TodoItem = React.createClass({
 
 - Here we bind to the events using `onClick` and `onChange`. From there we take the events, gather the necessary info, and pass it back up to the parent's functions.
 - A good pattern is to handle events on the child compoents and handle the data changes on the parents. It is possible to simply bind a parent's method to handle the events but it's an antipattern; try to keep the handling of the data as close to the source as possible. In this case, the events happen on the child, so handle it there. The data changes at the parent level so handle it there.
+- You're not actually typing into the input. You're actually creating a synthetic event in the virtual DOM that then is updating the real DOM via its stored, state values.
 - Let's look at it. Notice you can now change the completed status and update the text of the todos.
 
 ```javascript
