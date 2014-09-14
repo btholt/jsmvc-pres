@@ -15,35 +15,35 @@
     </div>
   </div>
 
-  <section ng-controller="NgTodoCtrl">
+  <section ng-controller="NgTodoCtrl as ctrl">
     <div class="outer-container">
 
       <div class="add-todo-group input-group input-group-lg">
         <span class="input-group-addon">
           <i class="glyphicon glyphicon-list-alt"></i>
         </span>
-        <input placeholder="New Todo" class="form-control" type="text" ng-model="newTask">
+        <input placeholder="New Todo" class="form-control" type="text" ng-model="ctrl.newTask">
         <span class="input-group-btn">
-          <button ng-click="addNewTask()" class="btn btn-success" type="button">
+          <button ng-click="ctrl.addNewTask()" class="btn btn-success" type="button">
             <i class="glyphicon glyphicon-plus"></i>
           </button>
         </span>
       </div>
 
-      <div class="input-group input-group-lg" ng-repeat="todo in todos">
+      <div class="input-group input-group-lg" ng-repeat="todo in ctrl.todos">
         <span class="input-group-addon">
           <input type="checkbox" ng-model="todo.completed">
         </span>
         <input ng-class="{finished : todo.completed}" class="form-control" type="text" ng-model="todo.val">
         <span class="input-group-btn">
-          <button ng-click="deleteTodo($index)" class="btn btn-danger" type="button">
+          <button ng-click="ctrl.deleteTodo($index)" class="btn btn-danger" type="button">
             <i class="glyphicon glyphicon-remove"></i>
           </button>
         </span>
       </div>
 
       <div class="btn-clear-group">
-        <button ng-click="clearCompleted()" class="btn btn-primary btn-clear">Clear Completed</button>
+        <button ng-click="ctrl.clearCompleted()" class="btn btn-primary btn-clear">Clear Completed</button>
       </div>
     </div>
   </section>
