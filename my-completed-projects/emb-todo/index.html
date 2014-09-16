@@ -16,6 +16,7 @@
   </div>
 
   <!-- script -->
+  <script type="text/x-handlebars" data-template-name="todos">
   <section>
     <div class="outer-container">
 
@@ -23,34 +24,42 @@
         <span class="input-group-addon">
           <i class="glyphicon glyphicon-list-alt"></i>
         </span>
-        <input class="form-control" type="text" id="new-todo" placeholder="New Todo"> <!-- input value action -->
+        {{input class="form-control" type="text" id="new-todo" placeholder="New Todo" value=newTodo action="createNewTodo"}} <!-- input value action -->
         <span class="input-group-btn">
-          <button class="btn btn-success" type="button"> <!-- action createNewTodo -->
+          <button class="btn btn-success" type="button" {{action "createNewTodo"}}> <!-- action createNewTodo -->
             <i class="glyphicon glyphicon-plus"></i>
           </button>
         </span>
       </div>
       <!-- each -->
+      {{#each itemController="todo" }}
+        {{todo-entry val=val completed=completed remove="removeTodo"}}
+      {{/each }}
+      <!-- /each -->
+
+      <div class="btn-clear-group">
+        <button class="btn btn-primary btn-clear" {{action "clearCompleted"}}>Clear Completed</button> <!-- action -->
+      </div>
+    </div>
+  </section>
+  </script>
+  <!-- /script -->
+
+  <script type="text/x-handlebars" id="components/todo-entry">
       <div class="input-group input-group-lg">
         <span class="input-group-addon">
-          <input type="checkbox">
+          {{input type="checkbox" checked=completed }}
         </span>
 
-        <input class="form-control" class="form-control"> <!-- value classNameBindings -->
+        {{input classNameBindings=":form-control completed:finished" value=val}} <!-- value classNameBindings -->
         <span class="input-group-btn">
-          <button class="btn btn-danger" type="button"> <!-- action -->
+          <button class="btn btn-danger" type="button" {{action "click"}}> <!-- action -->
             <i class="glyphicon glyphicon-remove"></i>
           </button>
         </span>
       </div>
-      <!-- /each -->
+  </script>
 
-      <div class="btn-clear-group">
-        <button class="btn btn-primary btn-clear">Clear Completed</button> <!-- action -->
-      </div>
-    </div>
-  </section>
-  <!-- /script -->
 
   <!-- JS Assets -->
   <script src="js/jquery-2.0.2.js"></script>
