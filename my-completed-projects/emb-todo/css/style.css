@@ -1,0 +1,36 @@
+.outer-container {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.finished {
+  text-decoration: line-through;
+  color: lightgray;
+  font-style: italic;
+}
+
+.input-group {
+  margin: 10px 0;
+}
+
+.add-todo-group {
+  margin-bottom: 30px;
+}
+
+.btn-clear-group {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.navbar-img {
+  margin-top: 4px;
+}
+
+.navbar-img img {
+  height: 38px;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
