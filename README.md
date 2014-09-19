@@ -12,7 +12,7 @@
 There are four folders.
 
 - The `completed-projects` folder contains all four projects with complete code.
-- The `empty-projectes` folder contains all the projects with none of the logic but all the HTML, CSS, and the JS libraries ready to go.
+- The `empty-projects` folder contains all the projects with none of the logic but all the HTML, CSS, and the JS libraries ready to go.
 - The `presentation-notes` contains all my notes that I use as I go through coding the projects. They are intended to be easy-to-follow so that you could recreate the talk without my speaking.
 - The `slides` directory is where the reveal.js presentation lives.
 
