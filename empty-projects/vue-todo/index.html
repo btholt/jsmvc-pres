@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue-todo</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">vue-todo</a>
+      <a class="navbar-right navbar-img" href="#"><img src="img/vue.png" alt=""></a>
+    </div>
+  </div>
+
+  <section id="app">
+    <div class="outer-container">
+
+      <div class="add-todo-group input-group input-group-lg">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-list-alt"></i>
+        </span>
+        <input placeholder="New Todo" class="form-control" type="text">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button">
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+        </span>
+      </div>
+
+      <div id="todos-el" class="input-group input-group-lg">
+        <span class="input-group-addon">
+          <input type="checkbox">
+        </span>
+        <input class="form-control {{completed ? 'finished' : ''}}" type="text">
+        <span class="input-group-btn">
+          <button class="btn btn-danger" type="button">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </span>
+      </div>
+
+      <div class="btn-clear-group">
+        <button class="btn btn-primary btn-clear">Clear Completed</button>
+      </div>
+    </div>
+  </section>
+  <!-- JS Assets -->
+  <script src="js/vue.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

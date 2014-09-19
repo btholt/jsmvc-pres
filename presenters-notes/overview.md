@@ -57,3 +57,11 @@
 - It is a more minimalistic approach to the problem than Angular takes; it really only seeks to give you your data-bound templates and then gets out of the way whereas Angular seeks to be a total-app solution. Both philosophies have merit.
 - The community is small but the maintainers are pretty active and available to help.
 - It's a fun library to tool around with.
+
+## Vanilla JS
+
+- Wait, wut? This is a talk about frameworks and we're going to be talking about being frameworkless? Yes, we are, because you should consider it.
+- If you use one of these frameworks, you are going to run into an edge condition and you are going to hate it. You are going to want to do something and the framework will not want you to do it. This is incredibly frustrating.
+- Being in a framework means you have yielded some control of the structuring of your app to someone else's philosophy. This, as you can imagine, is a double-edged sword. To some extent, you are always going to have a square-peg, round-hole problem because the framework is not designed for your use case. It is designed for *everyone's* use case.
+- Everyone here has touched jQuery. Or at least has heard of it. In your last jQuery project, did you use jQuery's entire API? I would wager there is not an app in the entire world that scratches the entire API surface of jQuery. This is similar to a framework: how many Angular devs here think they scratch the entire surface of Angular's API? By my count, the exposed API has well over 200 access points. You are carrying a lot of dead weight for a few production boons. A lot of these times you can spend an afternoon and craft your own minimalist framework.
+- Consider not using a framework if your app is more than a prototype.
