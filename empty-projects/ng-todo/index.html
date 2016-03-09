@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body><!-- app -->
+<body ng-app="ngTodo"><!-- app -->
   <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
       <a class="navbar-brand" href="#">ng-todo</a>
@@ -15,35 +15,35 @@
     </div>
   </div>
 
-  <section><!-- ctrl -->
+  <section ng-controller="NgTodoCtrl as ctrl"><!-- ctrl -->
     <div class="outer-container">
 
       <div class="add-todo-group input-group input-group-lg">
         <span class="input-group-addon">
           <i class="glyphicon glyphicon-list-alt"></i>
         </span>
-        <input placeholder="New Todo" class="form-control" type="text"><!-- model  -->
+        <input ng-model="newTask" placeholder="New Todo" class="form-control" type="text"><!-- model  -->
         <span class="input-group-btn">
-          <button class="btn btn-success" type="button"><!-- click  -->
+          <button ng-click="addNewTask()" class="btn btn-success" type="button"><!-- click  -->
             <i class="glyphicon glyphicon-plus"></i>
           </button>
         </span>
       </div>
 
-      <div class="input-group input-group-lg"><!-- repeat  -->
+      <div ng-repeat="todo in todos" class="input-group input-group-lg"><!-- repeat  -->
         <span class="input-group-addon">
-          <input type="checkbox"> <!-- model -->
+          <input ng-model="todo.completed" type="checkbox"> <!-- model -->
         </span>
-        <input class="form-control" type="text"><!-- model / class  -->
+        <input ng-model="todo.val" ng-class="{ finished: todo.completed }" class="form-control" type="text"><!-- model / class  -->
         <span class="input-group-btn">
-          <button class="btn btn-danger" type="button"><!-- click  -->
+          <button ng-click="removeTodo($index)" class="btn btn-danger" type="button"><!-- click  -->
             <i class="glyphicon glyphicon-remove"></i>
           </button>
         </span>
       </div>
 
       <div class="btn-clear-group">
-        <button class="btn btn-primary btn-clear">Clear Completed</button><!-- click -->
+        <button  ng-click="clearCompleted()" class="btn btn-primary btn-clear">Clear Completed</button><!-- click -->
       </div>
     </div>
   </section>
